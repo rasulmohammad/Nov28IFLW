@@ -15,10 +15,21 @@
 //     - num1
 //     - num2
 
+let adjective = "smart";
+let animal = "Dog";
+let famousPerson = "Michael Jordan";
+let food = "Burger";
+let liquid = "Mountain Dew";
+let num1 = 3;
+let num2 = 400;
+
 // TASK 1, PART 2:
 //
 //     Uncomment the madlib variable on the line below. Console log the madlib.
-//     let madlib = `Today, I'm feeling ${adjective} and channeling the energy of a ${animal}. You could consider my fashion style similar to that of ${famousPerson}'s. Every morning, I start off my morning by eating ${num1} ${food} and drinking ${num2} ${liquid}. I'm pretty rad.`;
+let madlib = `Today, I'm feeling ${adjective} and channeling the energy of a ${animal}. You could consider my fashion style similar to that of ${famousPerson}'s. Every morning, I start off my morning by eating ${num1} ${food} and drinking ${num2} ${liquid}. I'm pretty rad.`;
+console.log(madlib);
+
+console.log("-------------------------------------------");
 
 // TASK 2:
 //
@@ -33,6 +44,15 @@
 //
 //     Afterwards, console log canVote.
 
+let age = 17;
+let canVote;
+
+// if(age > 18)(canVote = "yes")
+// else{canVote = "no"}
+// console.log(canVote);
+
+console.log("-------------------------------------------");
+
 /************** FUNCTIONS & LOOPS **************/
 
 let numArr = [87, 34, 22, 98, 105];
@@ -45,6 +65,16 @@ let counter = 0;
 //     the array).
 //
 //     Call the function using numArr as the argument. The total should be 346.
+function addArr(arr) {
+  const sum = arr.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+
+  return sum;
+}
+console.log(addArr(numArr));
+
+console.log("-------------------------------------------");
 
 let stringArr = ["i", "am", "the", "best"];
 
@@ -55,6 +85,14 @@ let stringArr = ["i", "am", "the", "best"];
 //
 //    e.g. passing this function with the stringArr should give you back [1, 2, 3, 4]
 //    Hint: you can call .length on a string!
+function correspondingLengths(arr){
+  const lengths = arr.map((word) => {
+    return word.length;
+  });
+  return lengths;
+}
+
+console.log("-------------------------------------------");
 
 // TASK 5:
 //
@@ -70,6 +108,11 @@ let stringArr = ["i", "am", "the", "best"];
 //     6
 //     7
 //     8
+
+for(let i = 0; i < 9; i++){
+  console.log(i);
+}
+
 
 // TASK 6:
 //
@@ -88,6 +131,14 @@ let stringArr = ["i", "am", "the", "best"];
 let smallNums = [0, 4, 6];
 let largeNums = [450, 872, 660];
 let sumOfNums = [];
+function addArrays(arr1, arr2){
+  for(let i = 0; i < arr1.length; i++){
+    sumOfNums.push(arr1[i] + arr2[i]);
+  }
+}
+addArrays(smallNums, largeNums)
+console.log(sumOfNums);
+console.log("-------------------------------------------");
 
 /************** OBJECTS **************/
 
@@ -106,10 +157,22 @@ let sumOfNums = [];
 let side1 = 23;
 let side2 = 8;
 
+let rectangle = {
+  numOfSides: 4,
+  length: side1,
+  width: side2,
+  type: "parallelogram",
+  area: side1*side2
+}
+console.log(rectangle.area);
+
 const planet = {
   name: "Saturn",
   rings: 9
 };
+
+console.log("-------------------------------------------");
+
 // TASK 8:
 //
 //     Create an if...else statement where:
@@ -117,11 +180,24 @@ const planet = {
 //       'Saturn is the 6th planet from the Sun!
 //     - Otherwise, log the message 'You're not Saturn!'
 
+if(planet.name == "Saturn"){
+  console.log("Saturn is the 6th planet from the Sun!");
+}
+else{
+  console.log("You're not Saturn!");
+}
+
+console.log("-------------------------------------------");
+
 /************** STRETCH EXERCISES **************/
 // TASK 9:
 //
 //     Turn your solution from task 2 into a conditonal expression
 //     using the ternary operator. Be sure to comment out task 2!
+
+canVote = age > 18 ? "yes" : "no";
+console.log(canVote);
+console.log("-------------------------------------------");
 
 // TASK 10:
 //
@@ -130,10 +206,10 @@ const planet = {
 //     a function. If the function returns true, the item is included in the new array.
 //
 //     EXAMPLE:
-//     let words = ["the", "world", "is", "round", "like", "an", "orange"];
-//     let shortWords = words.filter(function(word) = {
-//       return word.length <= 3
-//     })
+    let words = ["the", "world", "is", "round", "like", "an", "orange"];
+    // let shortWords = words.filter(function(word) => {
+    //   return word.length <= 3
+    // })
 //
 //      console.log(shortWords) will return [ 'the', 'is', 'an' ]
 //
@@ -141,11 +217,21 @@ const planet = {
 //     Filter the array so that it returns any word that has the first letter equal
 //     to 'w'. Console log wordsThatStartWithW. Hint: you can use indexes on a word!
 
+let wordsThatStartWithW = words.filter((word) => {
+  return word[0] == "w";
+})
+console.log(wordsThatStartWithW);
+console.log("-------------------------------------------");
+
 // TASK 11:
 //
 //     Research the spread operator. Next, create a new array called 'moreEvens'.
 //     Using the spread operator, this array should contain all the numbers from the
 //     evens array along with the numbers 22 and 24. Console log the moreEvens array.
-//
+
 let evens = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
 let odds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+
+let moreEvens = [...evens, 22, 24];
+console.log(moreEvens);
+
